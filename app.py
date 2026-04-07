@@ -102,3 +102,14 @@ async def health():
 @app.get("/")
 async def root():
     return {"message": "WhatsApp AI Agent 🚀"}
+
+
+@app.get("/privacy")
+async def privacy_policy():
+    from fastapi.responses import HTMLResponse
+    html = """<html><body>
+    <h1>Privacy Policy - WhatsApp AI Agent</h1>
+    <p>This is a private personal assistant. Messages are stored locally only.</p>
+    <p>Contact: ykyk.yair@gmail.com</p>
+    </body></html>"""
+    return HTMLResponse(content=html)

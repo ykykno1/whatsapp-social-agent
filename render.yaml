@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: whatsapp-social-agent
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn app:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: WHATSAPP_PHONE_NUMBER_ID
+        sync: false
+      - key: VERIFY_TOKEN
+        sync: false
+      - key: DB_PATH
+        value: /var/data/social_agent.db
+    disk:
+      name: agent-data
+      mountPath: /var/data
+      sizeGB: 1

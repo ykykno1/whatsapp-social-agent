@@ -10,7 +10,7 @@ from database import (
 )
 
 client = anthropic.Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
-MODEL = "claude-3-5-haiku-20241022"
+MODEL = "claude-haiku-4-5"
 MAX_TOKENS = 1024
 
 SYSTEM_PROMPT = """אתה עוזר אישי חכם ומקצועי למנהל/ת סושיאל מדיה.
